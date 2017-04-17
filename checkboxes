@@ -1,0 +1,172 @@
+Private Sub allMonths_Change()
+If allMonths.Value = True Then
+    all2016.Value = True
+    jan2017.Value = True
+    feb2017.Value = True
+    mar2017.Value = True
+    apr2017.Value = True
+Else
+    all2016.Value = False
+    jan2017.Value = False
+    feb2017.Value = False
+    mar2017.Value = False
+    apr2017.Value = False
+End If
+End Sub
+Private Sub allNotes_Change()
+    If allNotes.Value = True Then
+    c0to15.Value = True
+    c16to30.Value = True
+    c31to45.Value = True
+    c46to60.Value = True
+Else
+    c0to15.Value = False
+    c16to30.Value = False
+    c31to45.Value = False
+    c46to60.Value = False
+End If
+End Sub
+Private Sub c0to15_Change()
+    If c0to15.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub c16to30_Change()
+    If c16to30.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub c31to45_Change()
+    If c31to45.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub c46to60_Change()
+    If c46to60.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub all2016_Change()
+    If all2016.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub jan2017_Change()
+    If jan2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub feb2017_Change()
+    If feb2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub mar2017_Change()
+    If mar2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub apr2017_Change()
+    If apr2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub allTrades_Change()
+    If allTrades.Value = True Then
+        appliance.Value = True
+        hvac.Value = True
+        electrical.Value = True
+        plumbing.Value = True
+        poolspa.Value = True
+        othertrades.Value = True
+    Else
+        appliance.Value = False
+        hvac.Value = False
+        electrical.Value = False
+        plumbing.Value = False
+        poolspa.Value = False
+        othertrades.Value = False
+    End If
+End Sub
+Private Sub appliance_Change()
+    If appliance.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub hvac_Change()
+    If hvac.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub electrical_Change()
+    If electrical.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub plumbing_Change()
+    If plumbing.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub poolspa_Change()
+    If poolspa.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub othertrades_Change()
+    If othertrades.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub allOwnerships_Change()
+    If allOwnerships.Value = True Then
+        required.Value = True
+        notRequired.Value = True
+        established.Value = True
+        completed.Value = True
+    Else
+        required.Value = False
+        notRequired.Value = False
+        established.Value = False
+        completed.Value = False
+    End If
+End Sub
+Private Sub required_Change()
+    If required.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub notRequired_Change()
+    If notRequired.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub established_Change()
+    If established.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub completed_Change()
+    If completed.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub allWos_Change()
+    If allWos.Value = True Then
+        c0to6.Value = True
+        c7to12.Value = True
+    Else
+        c0to6.Value = False
+        c7to12.Value = False
+    End If
+End Sub
+Private Sub c0to6_Change()
+    If c0to6.Value = False And allWos.Value = True Then
+        allWos.Value = False
+    End If
+End Sub
+Private Sub c7to12_Change()
+    If c7to12.Value = False And allWos.Value = True Then
+        allWos.Value = False
+    End If
+End Sub
