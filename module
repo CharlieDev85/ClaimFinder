@@ -1,0 +1,416 @@
+Private Sub allMonths_Change()
+If allMonths.Value = True Then
+    all2016.Value = True
+    jan2017.Value = True
+    feb2017.Value = True
+    mar2017.Value = True
+    apr2017.Value = True
+Else
+    all2016.Value = False
+    jan2017.Value = False
+    feb2017.Value = False
+    mar2017.Value = False
+    apr2017.Value = False
+End If
+End Sub
+Private Sub allNotes_Change()
+    If allNotes.Value = True Then
+    c0to15.Value = True
+    c16to30.Value = True
+    c31to45.Value = True
+    c46to60.Value = True
+Else
+    c0to15.Value = False
+    c16to30.Value = False
+    c31to45.Value = False
+    c46to60.Value = False
+End If
+End Sub
+Private Sub c0to15_Change()
+    If c0to15.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub c16to30_Change()
+    If c16to30.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub c31to45_Change()
+    If c31to45.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub c46to60_Change()
+    If c46to60.Value = False And allNotes.Value = True Then
+        allNotes.Value = False
+    End If
+End Sub
+Private Sub all2016_Change()
+    If all2016.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub jan2017_Change()
+    If jan2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub feb2017_Change()
+    If feb2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub mar2017_Change()
+    If mar2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub apr2017_Change()
+    If apr2017.Value = False And allMonths.Value = True Then
+        allMonths.Value = False
+    End If
+End Sub
+Private Sub allTrades_Change()
+    If allTrades.Value = True Then
+        appliance.Value = True
+        hvac.Value = True
+        electrical.Value = True
+        plumbing.Value = True
+        poolspa.Value = True
+        othertrades.Value = True
+    Else
+        appliance.Value = False
+        hvac.Value = False
+        electrical.Value = False
+        plumbing.Value = False
+        poolspa.Value = False
+        othertrades.Value = False
+    End If
+End Sub
+Private Sub appliance_Change()
+    If appliance.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub hvac_Change()
+    If hvac.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub electrical_Change()
+    If electrical.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub plumbing_Change()
+    If plumbing.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub poolspa_Change()
+    If poolspa.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub othertrades_Change()
+    If othertrades.Value = False And allTrades.Value = True Then
+        allTrades.Value = False
+    End If
+End Sub
+Private Sub allOwnerships_Change()
+    If allOwnerships.Value = True Then
+        required.Value = True
+        notRequired.Value = True
+        established.Value = True
+        completed.Value = True
+    Else
+        required.Value = False
+        notRequired.Value = False
+        established.Value = False
+        completed.Value = False
+    End If
+End Sub
+Private Sub required_Change()
+    If required.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub notRequired_Change()
+    If notRequired.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub established_Change()
+    If established.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub completed_Change()
+    If completed.Value = False And allOwnerships.Value = True Then
+        allOwnerships.Value = False
+    End If
+End Sub
+Private Sub allWos_Change()
+    If allWos.Value = True Then
+        c0to6.Value = True
+        c7to12.Value = True
+    Else
+        c0to6.Value = False
+        c7to12.Value = False
+    End If
+End Sub
+Private Sub c0to6_Change()
+    If c0to6.Value = False And allWos.Value = True Then
+        allWos.Value = False
+    End If
+End Sub
+Private Sub c7to12_Change()
+    If c7to12.Value = False And allWos.Value = True Then
+        allWos.Value = False
+    End If
+End Sub
+Private Sub btnSearch_Click()
+    Dim allMonthsB       As Boolean
+    Dim allTradesB       As Boolean
+    Dim allOwnershipsB   As Boolean
+    Dim allNotesB        As Boolean
+    Dim allWosB          As Boolean
+
+    Dim stringFilters    As String
+    Dim stringFiltersT   As String
+    Dim stringFiltersO   As String
+    Dim notesRange       As String
+    Dim woRange          As String
+        
+    Dim arr() As String
+    Dim arrT() As String
+    Dim arrO() As String
+    Dim arrN() As String
+    Dim arrW() As String
+    
+    allMonthsB = False
+    allTradesB = False
+    allOwnershipsB = False
+    allNotesB = False
+    allWosB = False
+    stringFilters = ""
+    stringFiltersT = ""
+    stringFiltersO = ""
+    stringFiltersN = ""
+    stringFiltersW = ""
+    notesRange = ""
+    woRange = ""
+    
+            
+    If allMonths.Value = True Then
+        allMonthsB = True
+        'MsgBox "alll months selected"
+    End If
+    If allTrades.Value = True Then
+        allTradesB = True
+        'MsgBox "alll trades selected"
+    End If
+    If allOwnerships.Value = True Then
+        allOwnershipsB = True
+        'MsgBox "all ownerships selected"
+    End If
+    If allNotes.Value = True Then
+        allNotesB = True
+    End If
+    If allWos.Value = True Then
+        allWosB = True
+    End If
+    
+    Sheets("raw").Visible = True
+    Sheets("raw").Select
+    ActiveSheet.Range("A1").Select
+    Selection.AutoFilter
+
+        
+    ' If: Claim Created Month
+    If allMonthsB = False Then
+        If all2016.Value = True Then
+            stringFilters = stringFilters + "08/31/2016,09/30/2016,10/31/2016,11/30/2016,12/31/2016"
+        End If
+        If jan2017.Value = True Then
+            stringFilters = stringFilters + "01/31/2017,"
+        End If
+        If feb2017.Value = True Then
+            stringFilters = stringFilters + "02/28/2017,"
+        End If
+        If mar2017.Value = True Then
+            stringFilters = stringFilters + "03/31/2017,"
+        End If
+        If apr2017.Value = True Then
+            stringFilters = stringFilters + "04/30/2017,"
+        End If
+        
+        Debug.Print stringFilters
+
+        arr() = Split(stringFilters, ",")
+        'Debug.Print LBound(arr)
+        Debug.Print UBound(arr)
+        If UBound(arr) < 0 Then
+            Sheets("MENU").Select
+            Sheets("raw").Visible = False
+            MsgBox "Please select a Month-Year", vbExclamation
+            Exit Sub
+        End If
+        
+        Dim arrFilter() As Variant
+        ReDim arrFilter(0 To UBound(arr) * 2 - 1)
+        Dim index As Long
+
+        For index = 0 To UBound(arrFilter)
+            If index Mod 2 = 0 Then
+                arrFilter(index) = 1
+            Else
+                arrFilter(index) = arr((index - 1) / 2)
+            End If
+        Next index
+        'Selection.AutoFilter
+        ActiveSheet.Range("$A$1:$R$1").AutoFilter Field:=4, Operator:= _
+        xlFilterValues, Criteria2:=arrFilter
+    End If
+    
+    
+    ' If: Trade Group
+    If allTradesB = False Then
+        If appliance.Value = True Then
+            stringFiltersT = stringFiltersT + "Appliance,"
+        End If
+        If hvac.Value = True Then
+            stringFiltersT = stringFiltersT + "HVAC,"
+        End If
+        If electrical.Value = True Then
+            stringFiltersT = stringFiltersT + "Electrical,"
+        End If
+        If plumbing.Value = True Then
+            stringFiltersT = stringFiltersT + "Plumbing,"
+        End If
+        If poolspa.Value = True Then
+            stringFiltersT = stringFiltersT + "Pool/Spa,"
+        End If
+        If othertrades.Value = True Then
+            stringFiltersT = stringFiltersT + "Central Vacuum,Garage Door Opener,Locksmith,Miscellaneous,NULL,Pest Control,Roof,Septic Tank,Structural,Well Pump,"
+        End If
+        
+        Debug.Print stringFiltersT
+        
+        arrT() = Split(stringFiltersT, ",")
+        Debug.Print LBound(arrT)
+        Debug.Print UBound(arrT)
+        If UBound(arrT) < 0 Then
+            Sheets("MENU").Select
+            Sheets("raw").Visible = False
+            MsgBox "Please select a Trade Group", vbExclamation
+            Exit Sub
+        Else
+            ReDim Preserve arrT(UBound(arrT) - 1)
+        End If
+        
+        ActiveSheet.Range("$A$1:$R$1").AutoFilter Field:=3, Criteria1:=arrT, Operator:= _
+        xlFilterValues
+        
+    End If
+    
+    ' If: OwnerShip
+    If allOwnershipsB = False Then
+        If required.Value = True Then
+            stringFiltersO = stringFiltersO + "Required,"
+        End If
+        If notRequired.Value = True Then
+            stringFiltersO = stringFiltersO + "Not Required,"
+        End If
+        If established.Value = True Then
+            stringFiltersO = stringFiltersO + "Established,"
+        End If
+        If completed.Value = True Then
+            stringFiltersO = stringFiltersO + "Completed,"
+        End If
+        
+        Debug.Print stringFiltersO
+        
+        arrO() = Split(stringFiltersO, ",")
+        Debug.Print LBound(arrO)
+        Debug.Print UBound(arrO)
+        If UBound(arrO) < 0 Then
+            Sheets("MENU").Select
+            Sheets("raw").Visible = False
+            MsgBox "Please select an Ownership Status", vbExclamation
+            Exit Sub
+            Else
+            ReDim Preserve arrO(UBound(arrO) - 1)
+        End If
+        ActiveSheet.Range("$A$1:$R$1").AutoFilter Field:=2, Criteria1:=arrO, Operator:= _
+        xlFilterValues
+        
+    End If
+    
+    'If Note Count
+    If allNotesB = False Then
+        
+        If c0to15.Value = True Then
+            stringFiltersN = stringFiltersN + "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,"
+            notesRange = notesRange + "0 to 15,"
+        End If
+        If c16to30.Value = True Then
+            stringFiltersN = stringFiltersN + "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,"
+            notesRange = notesRange + "16 to 30,"
+        End If
+        If c31to45.Value = True Then
+            stringFiltersN = stringFiltersN + "31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,"
+            notesRange = notesRange + "31 to 45,"
+        End If
+        If c46to60.Value = True Then
+            stringFiltersN = stringFiltersN + "46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,"
+            notesRange = notesRange + "46 to 60,"
+        End If
+        
+        arrN() = Split(stringFiltersN, ",")
+        
+        If UBound(arrN) < 0 Then
+            Sheets("MENU").Select
+            Sheets("raw").Visible = False
+            MsgBox "Please select Note Count", vbExclamation
+            Exit Sub
+        Else
+            ReDim Preserve arrN(UBound(arrN) - 1)
+        End If
+        ActiveSheet.Range("$A$1:$R$1").AutoFilter Field:=9, Criteria1:=arrN, Operator:= _
+        xlFilterValues
+        
+    End If
+    
+    'If WO Count
+    If allWosB = False Then
+        If c0to6.Value = True Then
+            stringFiltersW = stringFiltersW + "0,1,2,3,4,5,6,"
+            woRange = woRange + "0 to 6,"
+        End If
+        If c7to12.Value = True Then
+            stringFiltersW = stringFiltersW + "7,8,9,10,11,12,"
+            woRange = woRange + "7 to 12,"
+        End If
+        arrW() = Split(stringFiltersW, ",")
+        If UBound(arrW) < 0 Then
+            Sheets("MENU").Select
+            Sheets("raw").Visible = False
+            MsgBox "Please select WO Count", vbExclamation
+            Exit Sub
+        Else
+            ReDim Preserve arrW(UBound(arrW) - 1)
+        End If
+        ActiveSheet.Range("$A$1:$R$1").AutoFilter Field:=10, Criteria1:=arrW, Operator:= _
+        xlFilterValues
+    End If
+    
+    copy_paste_data
+    WriteLabels stringFilters, stringFiltersT, stringFiltersO, notesRange, woRange
+        
+End Sub
+
+Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+
+End Sub
